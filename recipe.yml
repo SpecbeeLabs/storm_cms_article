@@ -1,5 +1,9 @@
 name: Storm CMS Article
 description: Storm CMS Article
+recipes:
+  - storm_cms_content_type_base
+  - storm_cms_media
+  - storm_cms_person
 config:
   actions:
     metatag.settings:
