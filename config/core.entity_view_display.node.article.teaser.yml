@@ -14,8 +14,12 @@ dependencies:
     - field.field.node.article.field_teaser
     - field.field.node.article.field_thumbnail
     - field.field.node.article.field_topics
+    - image.style.thumbnail
     - node.type.article
   module:
+    - field_formatter_class
+    - lazy
+    - media
     - text
     - user
 id: node.article.teaser
@@ -29,19 +33,36 @@ content:
     settings:
       trim_length: 600
     third_party_settings: {  }
-    weight: 101
+    weight: 1
+    region: content
+  field_image:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: thumbnail
+      image_loading:
+        attribute: lazy
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+      lazy:
+        lazy_image: '0'
+        placeholder_style: ''
+        data_uri: false
+    weight: 0
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 2
     region: content
 hidden:
+  content_moderation_control: true
   field_authors: true
   field_category: true
   field_content_footer: true
   field_content_header: true
-  field_image: true
   field_link: true
   field_meta_tags: true
   field_teaser: true
